@@ -2,7 +2,7 @@ web:
   restart: always
   build: ./web
   expose:
-    - "8000"
+    - "3000"
   links:
     - postgres:postgres
     - redis:redis
@@ -12,7 +12,7 @@ web:
   env_file: .env
   environment:
     DEBUG: 'true'
-  command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
+  command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :3000
 
 nginx:
   restart: always
@@ -30,7 +30,7 @@ postgres:
   restart: always
   image: postgres:latest
   ports:
-    - "5432:5432"
+    - "5678:5678"
   volumes:
     - pgdata:/var/lib/postgresql/data/
 
