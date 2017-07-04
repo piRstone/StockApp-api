@@ -12,7 +12,7 @@ web:
   env_file: .env
   environment:
     DEBUG: 'true'
-  command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :3000
+  command: /usr/local/bin/gunicorn stockapp.wsgi:application -w 2 -b :3000
 
 nginx:
   restart: always
